@@ -1,18 +1,25 @@
-class House {
-    constructor(color) {
-        this.color = color;
+class User {
+    constructor(email, name) {
+        this.email = email;
+        this.name = name;
+        this.score = 0;
     }
-
-    getFurniture() {
-        return 'sofa'
+    login() {
+        console.log(this.email, 'just logged in')
+        return this;
+    }
+    logout() {
+        console.log(this.email, 'just logged out')
+        return this;
+    }
+    updateScore() {
+        this.score++;
+        console.log(this.email, 'score is now', this.score);
+        return this;
     }
 }
 
-const houseObject = new House('red')
-const houseObject2 = new House('blue')
+let userOne = new User('j.vanosdol99@yahoo.com', 'james');
+let userTwo = new User('yoshi@mariokorp', 'Yoshi');
 
-console.log(houseObject.color)
-console.log(houseObject.getFurniture())
-
-console.log(houseObject2.color)
-console.log(houseObject2.getFurniture())
+userOne.login().updateScore().updateScore().logout();
