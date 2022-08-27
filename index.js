@@ -1,11 +1,18 @@
-const book1 = {
-    title: 'harry potter',
-    author: 'JK Rowling',
-    year: '2001',
-    getSummary: function() {
-        return `${this.title} was written by ${this.author} in ${this.year}`;
+class Employee {
+    constructor(name, id, email) {
+        this.name = name;
+        this.id = id; 
     }
 }
 
-console.log(Object.keys(book1))
-console.log(book1.getSummary())
+class Intern extends Employee {
+
+}
+
+class Manager extends Employee {
+
+}
+
+class Engineer extends Employee {
+
+}
