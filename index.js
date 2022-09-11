@@ -5,7 +5,13 @@ const Intern = require('./lib/intern.js');
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+//const createTeamCards = require('./generateHTML.js')
+
+
+
 let team = [];
+
+
 
 const addIntern = (data) => {
     
@@ -47,6 +53,8 @@ const addIntern = (data) => {
     )
 }
 
+
+
 const addEngineer = (data) => {
 
     inquirer.prompt ([
@@ -87,6 +95,8 @@ const addEngineer = (data) => {
     ) 
 };
 
+
+
 const addAnotherEmployee = (data) => {
 
     inquirer.prompt ([
@@ -109,7 +119,9 @@ const addAnotherEmployee = (data) => {
                 generateTeam();
             }
         })
-}
+};
+
+
 
 const createManager = (data) => {
 
@@ -135,24 +147,14 @@ const createManager = (data) => {
         message: 'What is the team manager\'s office number?',
     },
     {
-        type: 'checkbox',
-        message: 'What languages do you know?',
-        name: 'stack',
-        choices: ['HTML', 'CSS', 'JavaScript', 'MySQL'],
-    },
-    {
-        type: 'list',
-        message: 'What is your preferred method of communication?',
-        name: 'contact',
-        choices: ['email', 'phone', 'telekinesis'],
-    },
-    {
         type: 'list',
         message: 'Would you like to create another Employee?',
         name: 'anotherEmployee',
-        choices: ['Create Intern', 'Create Engineer', 'No, generate my team'],
+        choices: ['Create Intern', 'Create Engineer', 'No, generate my team'
+        ],
     },
   ])
+
 
   
 .then((managerAnswers) => {
@@ -173,8 +175,7 @@ const createManager = (data) => {
                 addEngineer();
             }
             if (managerAnswers.anotherEmployee === 'No, generate my team') {
-                return 'Tell my wife I said Hello';
-                //generateTeam();
+                generateTeam();
             }
 
             //fs.appendFileSync('./dist/index.html', createManagerCard(manager))
@@ -184,41 +185,10 @@ const createManager = (data) => {
 
 
 
-// const createInternCard = (team) => {
-//     team.forEach(intern => {
-
-//     });
-    
-// }
-
-
-
-// const createIntern = () => {
-//     team.forEach((intern) => {
-//         fs.appendFileSync('./dist/index.html', createInternCard(intern))
-//     })
-// }
-
-
-// const createIntern = (intern) => {
-//    team.forEach((intern) => {
-//         fs.appendFileSync('./dist/index.html', createInternCard(intern))
-// };
-
-
-
-
 const generateTeam = () => {
     console.log(team)
-    //createIntern(team);
-
-// team.forEach(element => {
-    
-// });
 
     let newTeam = JSON.stringify(team);
-
-    // console.log(newteam)
 
     fs.appendFileSync('./dist/index.html', newTeam, err => {
         if(err) {
@@ -229,6 +199,6 @@ const generateTeam = () => {
 
 createManager();
 
-  
+//createTeamCards(team);
 
 
