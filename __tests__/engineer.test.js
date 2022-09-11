@@ -1,44 +1,15 @@
-const Arithmetic = require("../arithmetic");
+const Engineer = require("../lib/engineer.js");
 
-describe("Arithmetic", () => {
-  describe("Initialization", () => {
-    it("should return an object containing a 'number' property when called with the 'new' keyword", () => {
-      const obj = new Arithmetic();
+test('makes sure that the engineer class can be created', () => {
+  const engineerTest = new Engineer();
+  expect(typeof(engineerTest)).toBe('object')
+})
 
-      expect("number" in obj).toEqual(true);
-    });
+test('Can enter in an Engineer\'s name.', () => {
+  const name = 'James';
+  const engineerTest = new Engineer(name);
+  expect(engineerTest.name).toBe(name)
+})
 
-    it("should set 'number' when created", () => {
-      const num = 108;
+// need to test email, github, getGithub, and getRole()
 
-      const obj = new Arithmetic(num);
-
-      expect(obj.number).toEqual(num);
-    });
-
-    it("should default 'number' to 0", () => {
-      const obj = new Arithmetic();
-
-      expect(obj.number).toEqual(0);
-    });
-  });
-
-  describe("plus", () => {
-    it("should return a new 'Arithmetic' object", () => {
-      const obj = new Arithmetic(3).plus(3);
-
-      expect(obj instanceof Arithmetic).toEqual(true);
-    });
-
-    it("should return a new 'Arithmetic' object that has an updated 'number' value", () => {
-      const num = 8;
-      const added = 7;
-      const sum = num + added;
-
-      const { number } = new Arithmetic(num).plus(added);
-
-      expect(number).toEqual(sum);
-    });
-  });
-
-});
