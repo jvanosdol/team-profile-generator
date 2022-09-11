@@ -18,3 +18,13 @@
 // }
 
 // module.exports = createTeamCards();
+
+// const generateTeam = team => {
+//     const generateEmployee= manager=>{
+    //display manager name ${manager.name}
+
+// fs.appendFileSync('./dist/index.html',generateHTML(newTeam) , err => {
+//     if(err) {
+//         return;
+//     }
+// });

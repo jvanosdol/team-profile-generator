@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+/* body {
+
+} */
+
+.header {
+    height: 100px;
+    background-color: rgb(228, 70, 70);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.employee-list {
+    display: flex;
+    justify-content: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.card {
+    width: 200px;
+    height: 250px;
+    border: 1px solid black;
+    margin: 20px;  
+}
+
+.top-card {
+    height: 100px;
+    width: 200px;
+    background-color: rgb(14, 90, 253);
+}
+
+.name {
+    color: white;
+    padding: 10px;
+    padding-top: 10px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.bi-eyeglasses {
+    width: 40px;
+    height: 40px;
+    padding-left: 10px;
+    padding-top: 10px;
+    color: white;
+}
+
+.bi-mortarboard {
+    width: 40px;
+    height: 40px;
+    padding-left: 10px;
+    padding-top: 10px;
+    color: white;
+}
+
+.bi-cup-hot {
+    width: 40px;
+    height: 40px;
+    padding-left: 10px;
+    padding-top: 10px;
+    color: white;
+}
+
+.role {
+    color: white;
+    /* width: 100px; */
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.sub-container > h3 {
+    float: right;
+    padding-right: 60px;
+    padding-top: 20px;
+}
+.main-card > p {
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 3px;
+    font-size: 12px;
+    margin: 15px 5px;
+
+}
