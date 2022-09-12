@@ -7,7 +7,7 @@ describe("Engineer", () => {
 
   
     // checks to make sure this is infact an object
-    test('makes sure that the engineer class can be created', () => {
+    test('Makes sure that the Engineer class can be created', () => {
       const engineerTest = new Engineer();
       expect(typeof(engineerTest)).toBe('object')
     })
