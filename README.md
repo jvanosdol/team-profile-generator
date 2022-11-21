@@ -1,189 +1,100 @@
-# 10 Object-Oriented Programming: Team Profile Generator
+# weather-app# <Timed-Quiz>
 
-## Your Task
+## Author
 
-Your task is to build a Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. Testing is key to making code maintainable, so you’ll also write a unit test for every part of your code and ensure that it passes each test.
+James Van Osdol
 
-Because this application won’t be deployed, you’ll need to provide a link to a walkthrough video that demonstrates its functionality and all of the tests passing. You’ll need to submit a link to the video AND add it to the readme of your project.
+## Description
 
-> **Note**: There is no starter code for this assignment.
+This project demonstrates knowledge of generating custom HTML files based on user input. The initial HTML is blank except for a header element. As the user answers the prompts, the answers are then saved and are built into the HTML file. When the user is finished with prompts, the HTML file will finish generating and will display all of the user generated input. The user input will be displayed in cards within the main page. The HTML file is reset each time the program is run. 
 
-## User Story
+The goal of the project is to generate a web page that displays a 'team' that the user creates. The user must add a manager and then has the option to add any number of interns or engineers. Based on the type of employee that is being added, the user will be prompted to add specific data about the employee. 
 
-```md
-AS A manager
-I WANT to generate a webpage that displays my team's basic info
-SO THAT I have quick access to their emails and GitHub profiles
-```
 
-## Acceptance Criteria
 
-```md
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for my team members and their information
-THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-WHEN I click on an email address in the HTML
-THEN my default email program opens and populates the TO field of the email with the address
-WHEN I click on the GitHub username
-THEN that GitHub profile opens in a new tab
-WHEN I start the application
-THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-WHEN I enter the team manager’s name, employee ID, email address, and office number
-THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
-WHEN I select the engineer option
-THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
-WHEN I select the intern option
-THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-WHEN I decide to finish building my team
-THEN I exit the application, and the HTML is generated
-```
 
-## Mock-Up
 
-The following image shows a mock-up of the generated HTML’s appearance and functionality:
+*** Added the ability to delete previously saved notes
 
-![HTML webpage titled “My Team” features five boxes listing employee names, titles, and other key info.](./Assets/10-object-oriented-programming-homework-demo.png)
+The purpose of this project is to demonstrate knowledge of DOM manipulation and using localStorage to save and call saved data and then display it in specific text-areas. 
 
-The styling in the image is just an example, so feel free to add your own.
+The project displays time-blocks, broken down by hour. Each time-block 'row' has a designated 'time', a text-area, a save button, and a delete button. The delete button is extra, I thought it would be fun to try and add the ability to delete specific items. 
 
-## Getting Started
+Each 'row' event is broken down by hour, from 9AM to 5PM. Each row's text-area will change color depending on how the local time compares to the event row's set time. Text-areas in each row will change color based local time, 'green' if the event is in the future, 'red' if the event time matches the local time, and 'grey' if the event has already passed (the event time is less than the local time).
 
-This Challenge will combine many of the skills we've covered so far. In addition to the User Story and Acceptance Criteria, we’ve provided some guidelines to help get started.
+For instance, the first row is 9AM, if the local time is 8AM, the 9AM row will be set to green, indicating that this event is still in the future. If the event time matches the current local hour, the event's text-area will be set to 'red', and if the event is in the past, the text-area will be set to grey.
 
-Because this Challenge will require a video submission, refer to the [Fullstack Blog Video Submission Guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) for additional guidance on creating a video.
 
-Your application should use [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer/v/8.2.4) for collecting input from the user. The application will be invoked by using the following command:
+User's are able to enter in text into each of the text-areas, if the page is refreshed, the text will not be saved. In order to save the text in the desired text-area, the user must click on the 'save' button. Clicking the 'save' button stores the text content within a specific text-area to local storage, the page is then refreshed and then the local storage value for the specific text-area is then pulled from local storage and then displayed within the text-area. 
 
-```bash
-node index.js
-```
+The user also has the added ability to delete the text content within a specified text-area. The user can click on the 'delete' button which will clear the value/text content from a specific text-area, by clearing its respective local storage.
 
-It is recommended that you start with a directory structure that looks like the following example:
+## Table of Contents
 
-```md
-.
-├── __tests__/             //jest tests
-│   ├── Employee.test.js
-│   ├── Engineer.test.js
-│   ├── Intern.test.js
-│   └── Manager.test.js
-├── dist/                  // rendered output (HTML) and CSS style sheet      
-├── lib/                   // classes
-├── src/                   // template helper code 
-├── .gitignore             // indicates which folders and files Git should ignore
-├── index.js               // runs the application
-└── package.json           
-```
+- [Installation](#installation)
+- [Screenshots](#screenshots)
+- [Credits](#credits)
+- [Features](#features)
+- [How To Contribute](#how-to-contribute)
+- [Contact](#contact)
 
-**Important**: Make sure that you remove `dist` from the `.gitignore` file so that Git will track this folder and include it when you push up to your application's repository.
 
-The application must include `Employee`, `Manager`, `Engineer`, and `Intern` classes. The tests for these classes (in the `_tests_` directory) must ALL pass.
+## Built With
 
-The first class is an `Employee` parent class with the following properties and methods:
+-Javascript
+-HTML
+-CSS
 
-* `name`
 
-* `id`
 
-* `email`
+## Installation
 
-* `getName()`
+Clone the repo
+git clone https://github.com/jvanosdol/daily-planner
 
-* `getId()`
 
-* `getEmail()`
+## Screenshots
 
-* `getRole()`&mdash;returns `'Employee'`
 
-The other three classes will extend `Employee`.
+- Planner Screenshot
 
-In addition to `Employee`'s properties and methods, `Manager` will also have the following:
 
-* `officeNumber`
+  ![screenshot](/assets/planner-screenshot.png)
 
-* `getRole()`&mdash;overridden to return `'Manager'`
 
-In addition to `Employee`'s properties and methods, `Engineer` will also have the following:
+## Credits
 
-* `github`&mdash;GitHub username
+- [Google](https://www.google.com)
+- [W3](https://www.w3schools.com)
+- [stackoverflow](https://stackoverflow.com/)
 
-* `getGithub()`
+## Features
 
-* `getRole()`&mdash;overridden to return `'Engineer'`
+This app allows users to create a daily planner, they can enter, save, and then delete events based on hourly time slots.
 
-In addition to `Employee`'s properties and methods, `Intern` will also have the following:
 
-* `school`
+## Deployed Page
 
-* `getSchool()`
+https://jvanosdol.github.io/daily-planner/
 
-* `getRole()`&mdash;overridden to return `'Intern'`
 
-Finally, although it’s not a requirement, consider adding validation to ensure that user input is in the proper format.
+## Github Repo
 
-## Grading Requirements
+https://github.com/jvanosdol/daily-planner
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
 
-This Challenge is graded based on the following criteria:
+## How to Contribute
 
-### Deliverables: 15%
+1. Fork the Project
+2. Create your Feature Branch (git checkout -b)
+3. Commit your Changes (git commit -m '')
+4. Push to the Branch (git push origin)
+5. Open a Pull Request
 
-* A sample HTML file generated using the application must be submitted.
 
-* Your GitHub repository containing your application code.
+## Contact
 
-### Walkthrough Video: 32%
+Github username: jvanosdol
 
-* A walkthrough video that demonstrates the functionality of the Team Profile Generator and passing tests must be submitted, and a link to the video should be included in your README file.
+email: j.vanosdol99@yahoo.com
 
-* The walkthrough video must show all four tests passing from the command line.
-
-* The walkthrough video must demonstrate how a user would invoke the application from the command line.
-
-* The walkthrough video must demonstrate how a user would enter responses to all of the prompts in the application.
-
-* The walkthrough video must demonstrate a generated HTML file that matches the user input.
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * Uses the [Inquirer package](https://www.npmjs.com/package/inquirer/v/8.2.4).
-
-  * Uses the [Jest package](https://www.npmjs.com/package/jest) for a suite of unit tests.
-
-  * The application must have `Employee`, `Manager`, `Engineer`, and `Intern` classes.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains a high-quality readme with description and a link to a walkthrough video.
-
-## Review
-
-You are required to submit the following for review:
-
-* A walkthrough video that demonstrates the functionality of the application and passing tests.
-
-* A sample HTML file generated using your application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.

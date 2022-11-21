@@ -6,6 +6,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 let team = [];
+
 let managers = [];
 let interns = [];
 let engineers = [];
@@ -204,7 +205,7 @@ const createManager = (data) => {
             managerAnswers.email,
             managerAnswers.officeNum
         );
-            team.push(managers)
+            team.push(manager)
             managers.push(manager)
             console.log(managers)
             createManagerCard();
@@ -330,17 +331,6 @@ function generateBottomHTML() {
 </html>
 `
 
-//     return `
-    
-//     </div>
-
-//     </div>
-
-// </body>
-// </html>
-
-
-//     `
 )
 }
 
